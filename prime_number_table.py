@@ -25,6 +25,13 @@ def prime_number_gen():
 
 
 def inputValidation(func):
+    """
+        decorator to insure input is of the correct format
+        checks for:
+            - floats
+            - strings that dont convert to integers
+            - negative numbers
+    """
     def wrapper(n):
         if type(n) == float:
             raise TypeError(f'{n} is not an integer')
@@ -43,14 +50,25 @@ def inputValidation(func):
 
 @inputValidation
 def put_primes_in_table(n):
+    """
+        input:
+            an integer greater than 0
+        output:
+            a prime number multiplication table in a printable string format
+    """
+    # generate primes
     prime_gen = prime_number_gen()
     primes = [next(prime_gen) for _ in range(n)]
+    # add a 1 to the beginning so table includes the primes themselves
     primes_with_one = [1] + primes
+    # compute mutiplication table
     prime_table = [
         [top_num * left_num for top_num in primes_with_one]
         for left_num in primes_with_one
     ]
+    # set column width to value of digits in the largest number
     col_width = len(str(primes[-1] ** 2))
+    # make lists into strings with a border character inbetween
     prime_string_grid = []
     for row in prime_table:
         table_row = (
@@ -60,7 +78,7 @@ def put_primes_in_table(n):
             )
         )
         prime_string_grid.append(table_row)
-
+    # return grid as one string with new line separators
     return '\n'.join(prime_string_grid)
 
 
@@ -72,5 +90,4 @@ if __name__ == '__main__':
         n = 10
 
 
-    to_print = put_primes_in_table(n)
-    print(to_print)
+    print(put_primes_in_table(n))
