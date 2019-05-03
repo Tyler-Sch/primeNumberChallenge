@@ -11,7 +11,7 @@ pytest
 ## Installation and Execution:
 
 ```
-git clone 'repo name'
+git clone https://github.com/wintermutestoothache/primeNumberChallenge.git
 ```
 with [Virtualenv](https://virtualenv.pypa.io/en/latest/):
 ```
