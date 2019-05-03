@@ -27,6 +27,7 @@ def prime_number_gen():
 def inputValidation(func):
     """
         decorator to insure input is of the correct format
+        and for converting string inputs to integers when possible
         checks for:
             - floats
             - strings that dont convert to integers
