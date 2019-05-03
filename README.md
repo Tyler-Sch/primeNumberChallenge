@@ -28,9 +28,10 @@ pip install -u pytest
 To run:
 
 ```
+cd primeGen
 python prime_number_table.py
 ```
-if you like to generate a table other than the default 10 x 10 include an
+if you like to generate a table other than the default 10 x 10 include an integer
 argument for the amount of primes you'd like
 
 ex:
